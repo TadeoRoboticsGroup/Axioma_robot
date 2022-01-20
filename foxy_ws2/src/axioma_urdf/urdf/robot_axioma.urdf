@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<robot name="robot_urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+
+<link name="world" />
+
+  <link name="base_link">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/chasis.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  <material name="grey">
+    <color rgba="0.4 0.4 0.4 1.0" />
+  </material>
+    </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/chasis.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="100"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+    <link name="wheel_1">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="black">
+  <color rgba="0 0 0 1"/>
+  </material>
+  </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="10"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+    <link name="wheel_2">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="black"/>
+    </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="10"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+    <link name="wheel_3">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="black"/>
+    </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="10"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+
+    <link name="wheel_4">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="black"/>
+    </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="10"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+    <joint name="fixed" type="fixed">
+      <parent link="world" />
+      <child link="base_link" />
+    </joint>
+
+    <joint name="base_to_wheel1" type="continuous">
+    <parent link="base_link"/>
+    <origin rpy="0 0 0" xyz="0.06442 0.07385 0.04068"/>
+    <child link="wheel_1"/>
+    <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="base_to_wheel2" type="continuous">
+    <parent link="base_link"/>
+    <origin rpy="0 0 0" xyz="-0.071224 0.07385 0.04068"/>
+    <child link="wheel_2"/>
+    <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="base_to_wheel3" type="continuous">
+    <parent link="base_link"/>
+    <origin rpy="0 0 -3.14159" xyz="-0.071224 -0.0625 0.04068"/>
+    <child link="wheel_3"/>
+    <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="base_to_wheel4" type="continuous">
+    <parent link="base_link"/>
+    <origin rpy="0 0 -3.14159" xyz="0.064423 -0.0625 0.04068"/>
+    <child link="wheel_4"/>
+    <axis xyz="0 1 0" />
+    </joint>
+
+</robot>
