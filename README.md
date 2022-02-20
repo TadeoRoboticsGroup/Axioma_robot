@@ -17,9 +17,27 @@ El hardware se encuentra compuesto por dos herramientas open hardware muy usadas
 ## 2 Software
 ### 2.1 [ROS/ROS2](https://www.ros.org/)
 ### [ROS2 Foxy](https://docs.ros.org/en/foxy/index.html)
-  * #### Librerias
-    * ###### rclcpp
-    * ###### rclpy
+  * #### [Librerias](http://wiki.ros.org/Client%20Libraries)
+  Son las herramientas que permiten la interación entre ROS y el codigo fuente del proyecto construido en determinado lenguaje. Las librerias principales son RCLCPP para C++ y RCLPY para Python, pero hay librerias clientes para todos los gustos y necesidades. 
+  
+   * ###### [rclcpp](https://docs.ros2.org/foxy/api/rclcpp/index.html) 
+   Es la biblioteca cliente de ROS proporciona la API canónica de ***C++*** para interactuar con ROS.
+    
+   * ###### [rclpy](https://docs.ros2.org/latest/api/rclpy/index.html) 
+   Es la biblioteca cliente de ROS proporciona la API canónica de ***Python*** para interactuar con ROS.
+    
+   Acontinuación veremos otros ejemplos de las librerias clientes para ROS.
+   
+|    Libreria   | Lenguaje    |   Libreria       | Lenguaje     |
+| ------------- | ----------- | ---------------- | ------------ |
+| ***roscs***   | *Mono/.NET* | ***rosnode***    | *Node.js*    |
+| ***rosseus*** | *Lisp*      | ***RobotOS.jl*** | *Julia*      |
+| ***rosgo***   | *Go*        | ***PhaRos***     | *Pharo*      |
+| ***roshask*** | *Haskell*   | ***rosR***       | *R*          | 
+| ***rosjava*** | *Java*      | ***rosRuby***    | *Ruby*       |
+
+---
+    
 * #### Nodos
 * #### Temas
 * #### Acciones
