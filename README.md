@@ -39,6 +39,7 @@ El hardware se encuentra compuesto por dos herramientas open hardware muy usadas
 ---
     
 * #### Nodos
+  ##### RobotStatePublisher and JointStatePublisher
 * #### Temas
 * #### Acciones
 * #### Servicios
@@ -46,4 +47,96 @@ El hardware se encuentra compuesto por dos herramientas open hardware muy usadas
 * #### Lanzaderas
 * #### Urdf
 
-### 2.2 [Gazebo](http://gazebosim.org/)
+
+###  3. TEORIA
+#### Odometría
+* ##### Modelo matematico robot Axioma
+
+Posición Robot
+
+    Vx=V*cos(θ)
+
+    Vy=V*sen(θ)
+
+
+ 
+Ecuaciones de velocidades lineales y angulares
+
+    vL=v-(wL/2) Velocidad derecha
+   
+    vR=v+(wL/2) Velocidad izquierda
+   
+    w=(vL-vR)/L Velocidad Angular
+   
+L: longitud entre las ruedas
+
+calculo de  w
+
+    w=90º/Δt   ->   w=(2π/ticks)/Δt  (rad/s)
+
+Periodo T
+
+    T=Δt
+
+Frecuencia (f)
+
+    f=1/T
+
+Velocidad angular
+
+    w=2π/T
+
+Velocidad lineal  
+
+    V=W*R
+
+
+* ##### Odometria con encoders
+
+- Dc(distancia central[Posición])  
+- Dr(distancia derecho)  
+- Dl(distancia izquierdo)
+
+    Dc=(DR+DL)/2  
+
+Para actualizar la posición
+
+    x'=x+Dc*cos(θ)
+    y'=y+Dc*sin(θ)
+    θ'=θ+(Dr-Dl)/L
+
+    ΔTics =ΔTick - Tick
+
+Distancia recorrida
+
+    D=2πR(ΔTick/N)   
+    
+N: numero de tiks que tiene la rueda
+
+
+* ##### Feedback de Retroalimentación
+
+Diagrama del feedback en la electrónica
+
+       
+Se debe pasar:
+
+    Tick's ---> (x,y)
+    Tick's ---> Distancia ---> (X,Y)
+
+
+Tiempos de interrupción 
+cada cierto tiempo ejecutar una acción de control
+              
+ muestre| Δmuestreo  |muestreo
+ anterio|   10ms     |actual
+|----------|------------|---------------> t
+             ^^^^^^^^^^^^
+            
+Δmuestreo = muestreoActual - muestreoAnterior
+
+    if(Δmuestreo>10ms)  ===>  Ejecuta acción de Control
+    
+###  4. Simulación
+#### [Gazebo](http://gazebosim.org/)
+
