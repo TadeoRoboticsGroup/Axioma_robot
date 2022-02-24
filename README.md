@@ -19,7 +19,9 @@ Robot móvil, autónomo, logística, planeación, trayectorias.
 * Integrar el software desarrollado para la localización, control, navegación, mapeo y planificación de trayectorias  en el robot físico Axioma.io. 
 Agregar sensores para realizar odometría y cálculo de velocidad de giros del robot.  
 
-___Foto del axioma aquí___
+![Axioma](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/axioma.jpeg)
+
+![open_source](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/open_software.jpeg)
 
 ## 1 Hardware
 El hardware se encuentra compuesto por dos herramientas open hardware muy usadas en el desarrollo y prototipado rapido de dispositivos electrónicos y mecátronicos y una raspberry pi. Estos dispositivos estan clasificados ***"One Chip"*** por todo en uno solo como lo es arduino que posee un microcontrolador, chip para la comunicación serial, reguladores de voltajes y demas componentes electronicos que permitan conectar actuadores y sensores de forma facil y rapida. En la clasificación One Chip tambien tenemos lo que es la raspberry pi que lleva a bordo un chip microprocesador, ram, video, ethernet/wifi, regulador, comunicación serial que le permiten conectar otros dispositivos como camaras, monitores y toda clase de perifericos usb que le brindan a esta pequeña tarjeta la posibilidad de crear muchas aplicaciones web, IoT, Entretenimiento y Robotica.
@@ -32,12 +34,20 @@ El hardware se encuentra compuesto por dos herramientas open hardware muy usadas
   * ### Fuente de alimentación
   * ### Micros
     * ### [Arduino](https://www.arduino.cc/)
+
+    ![arduino](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/arduino.jpeg)
+
     * ### [Raspberry pi](https://www.raspberrypi.com/)
 
+    ![raspberry](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/raspberry.jpeg)
 
 
 ## 2 Software
-### 2.1 [ROS/ROS2](https://www.ros.org/)  <[source](https://github.com/ros)>
+
+### 2.1 [ROS/ROS2](https://www.ros.org/)  
+
+![ros](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/ros.jpeg)
+[source](https://github.com/ros)
 
 ### [ROS2 Foxy](https://docs.ros.org/en/foxy/index.html)
   * #### [Librerias](http://wiki.ros.org/Client%20Libraries)
@@ -213,4 +223,4 @@ cada cierto tiempo ejecutar una acción de control
 
 
 
-![Axioma](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/axioma.jpeg)
+
