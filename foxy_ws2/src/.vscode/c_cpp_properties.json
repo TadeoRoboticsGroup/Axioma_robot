@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/ur_robot_driver/include/**",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/ur_controllers/include/**",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/ur_msgs/include/**",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/ur_dashboard_msgs/include/**",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/myworkcell_core/include/**",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/fake_ar_publisher/include/**",
+        "/opt/ros/foxy/include/**",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/src/cpp_pubsub/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

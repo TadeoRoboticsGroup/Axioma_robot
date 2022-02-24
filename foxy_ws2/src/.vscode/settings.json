@@ -1,0 +1,11 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/ur_msgs/lib/python3.8/site-packages",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/ur_dashboard_msgs/lib/python3.8/site-packages",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/myworkcell_core/lib/python3.8/site-packages",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/fake_ar_publisher/lib/python3.8/site-packages",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/axioma_urdf/lib/python3.8/site-packages",
+        "/home/myuser/Documents/Axioma_robot/foxy_ws2/install/axioma_node/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}
