@@ -1,6 +1,6 @@
-# Axioma.io  _:hugs: :muscle: :seedling: :nerd_face:__:space_invader: :robot: :rocket:
+# Axioma.HU   :hugs: :muscle: :seedling: :nerd_face:
 
-Este proyecto de grado aborda el desarrollo de software con el sistema operativo de robots ROS2 para convertir la plataforma robótica móvil Axioma.io desarrollado por estudiantes del semillero de robótica SIRO en una plataforma autónoma con la capacidad de percibir y entender el entorno de trabajo en el que se encuentre y pueda calcular una ruta para desplazarse de un punto de origen a un punto final llevando a bordo algún producto, todo esto sin intervención de un operario y sirviendo así como una solución a la automatización de la logística en cadenas y/o procesos de producción cumpliendo los requerimientos de la industria en el suministro, planificación , gestión y control del almacenamiento de mercancía para conseguir los niveles más altos de servicio, calidad y eficiencia al menor tiempo y costo posible. 
+Este proyecto de grado aborda el desarrollo de software con el sistema operativo de robots ROS2 para convertir la plataforma robótica móvil Axioma.HU desarrollado por estudiantes del semillero de robótica SIRO en una plataforma autónoma con la capacidad de percibir y entender el entorno de trabajo en el que se encuentre y pueda calcular una ruta para desplazarse de un punto de origen a un punto final llevando a bordo algún producto, todo esto sin intervención de un operario y sirviendo así como una solución a la automatización de la logística en cadenas y/o procesos de producción cumpliendo los requerimientos de la industria en el suministro, planificación , gestión y control del almacenamiento de mercancía para conseguir los niveles más altos de servicio, calidad y eficiencia al menor tiempo y costo posible. 
 
 #### palabras clave
 
@@ -70,7 +70,20 @@ Nodos importantes usados en el proyecto axioma
 |------------------------------|-------|---------|-----------|----------|---------|------------|
 | ***[Robot State Publisher](https://github.com/ros/robot_state_publisher/tree/foxy)***   |***joint_states (sensor_msgs/JointState)***| |***robot_description (urdf_map)*** ***tf_prefix(string)***  ***publish_frequency (double)***   ***ignore_timestamp(bool)***  ***use_tf_static (bool)*** |||  Nodo para publicar el estado de un robot en [**tf2**](https://wiki.ros.org/tf2). El estado publicado se pone disponible para todo le sistema que usan tf2. El paquete se puede utilizar como biblioteca y como nodo ROS.|
 | ***[Joint State Publisher](https://github.com/ros/joint_state_publisher/tree/foxy)***  |            |           |            |             |   | Este paquete publica mensajes sensor_msgs/JointState para un robot. El paquete lee el parámetro robot_description del servidor de parámetros , encuentra todas las uniones no fijas y publica un mensaje JointState con todas esas uniones definidas.`
-
+|smy_robot | | | | | | |
+|my_robot_base | | | | | | |
+|my_robot_bringup  | | | | | | |
+|my_robot_description| | | | | | |
+|my_robot_gazebo | | | | | | |
+|my_robot_kinematics | | | | | | |
+|my_robot_localization | | | | | | |
+|my_robot_manipulation | | | | | | |
+|my_robot_moveit_config | | | | | | |
+|my_robot_msgs | | | | | | |
+|my_robot_navigation | | | | | | |
+|my_robot_teleop | | | | | | |
+|my_robot_tests | | | | | | |
+|my_robot_rviz_plugins | | | | | | |
 
 ---
 
@@ -102,7 +115,10 @@ Nodos importantes usados en el proyecto axioma
 
 ---
 
-###  3. TEORIA
+## 3 Modelado 3D
+
+## 4 Ecuaciones
+
 #### Odometría
 * ##### Modelo matematico robot Axioma
 
@@ -191,7 +207,7 @@ cada cierto tiempo ejecutar una acción de control
 
     if(Δmuestreo>10ms)  ===>  Ejecuta acción de Control
     
-###  4. Simulación
+###  5 Simulación
 #### [Gazebo](http://gazebosim.org/)
 
 
