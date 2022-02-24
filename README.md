@@ -1,6 +1,6 @@
-# Axioma.HU   :hugs: :muscle: :seedling: :nerd_face:
+# Axioma.io   :hugs: :muscle: :seedling: :nerd_face:
 
-Este proyecto de grado aborda el desarrollo de software con el sistema operativo de robots ROS2 para convertir la plataforma robótica móvil Axioma.HU desarrollado por estudiantes del semillero de robótica SIRO en una plataforma autónoma con la capacidad de percibir y entender el entorno de trabajo en el que se encuentre y pueda calcular una ruta para desplazarse de un punto de origen a un punto final llevando a bordo algún producto, todo esto sin intervención de un operario y sirviendo así como una solución a la automatización de la logística en cadenas y/o procesos de producción cumpliendo los requerimientos de la industria en el suministro, planificación , gestión y control del almacenamiento de mercancía para conseguir los niveles más altos de servicio, calidad y eficiencia al menor tiempo y costo posible. 
+Este proyecto de grado aborda el desarrollo de software con el sistema operativo de robots ROS2 para convertir la plataforma robótica móvil Axioma.io desarrollado por estudiantes del semillero de robótica SIRO en una plataforma autónoma con la capacidad de percibir y entender el entorno de trabajo en el que se encuentre y pueda calcular una ruta para desplazarse de un punto de origen a un punto final llevando a bordo algún producto, todo esto sin intervención de un operario y sirviendo así como una solución a la automatización de la logística en cadenas y/o procesos de producción cumpliendo los requerimientos de la industria en el suministro, planificación , gestión y control del almacenamiento de mercancía para conseguir los niveles más altos de servicio, calidad y eficiencia al menor tiempo y costo posible. 
 
 #### palabras clave
 
@@ -48,6 +48,8 @@ El hardware se encuentra compuesto por dos herramientas open hardware muy usadas
 
 ![ros](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/ros.jpeg)
 [source](https://github.com/ros)
+
+![service](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/service.gif)
 
 ### [ROS2 Foxy](https://docs.ros.org/en/foxy/index.html)
   * #### [Librerias](http://wiki.ros.org/Client%20Libraries)
@@ -123,11 +125,16 @@ Nodos importantes usados en el proyecto axioma
 
 * #### TF/TF2
 
+![frames](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/frames4.png)
+
 ---
 
 ## 3 Modelado 3D
 
-## 4 Ecuaciones
+## 4 Modelo matemático 
+
+![diff](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/diff.jpeg)
+
 
 #### Odometría
 * ##### Modelo matematico robot Axioma
@@ -208,10 +215,9 @@ Se debe pasar:
 Tiempos de interrupción 
 cada cierto tiempo ejecutar una acción de control
               
- muestre| Δmuestreo  |muestreo
- anterio|   10ms     |actual
-|----------|------------|---------------> t
-             ^^^^^^^^^^^^
+| muestre anterior | ***Δmuestreo 10ms*** |muestreo actual | 
+|------------------|----------------------|----------------|
+|                  | ^ ^ ^ ^ ^ ^ ^ ^ ^ ^  |                |
             
 Δmuestreo = muestreoActual - muestreoAnterior
 
@@ -219,6 +225,7 @@ cada cierto tiempo ejecutar una acción de control
     
 ###  5 Simulación
 #### [Gazebo](http://gazebosim.org/)
+
 
 
 
