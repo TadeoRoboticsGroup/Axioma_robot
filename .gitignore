@@ -1,10 +1,10 @@
 #Project
-foxy_ws2/build
-foxy_ws2/install
-foxy_ws2/log
-foxy_ws2/src/cpp_pubsub
-foxy_ws2/src/myworkcell_support
-foxy_ws2/src/sam_bot_description
+axioma_ws/build
+axioma_ws/install
+axioma_ws/log
+axioma_ws/src/cpp_pubsub
+axioma_ws/src/myworkcell_support
+axioma_ws/src/sam_bot_description
 
 
 devel/

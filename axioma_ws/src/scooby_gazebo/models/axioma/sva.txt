@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name='Axioma'>
+  <!--robot name="sam_bot" xmlns:xacro="http://ros.org/wiki/xacro"-->
+  <pose>0 0 0 0 0 0</pose>
+
+  <!--link name="world" /-->
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/visual/chasis.stl" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/visual/chasis.stl</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+      <material name="grey">
+        <color rgba="0.4 0.4 0.4 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/collision/chasis.dae" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/collision/chasis.dae</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+    </collision>
+    <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.0227</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0852</iyy>
+          <iyz>0</iyz>
+          <izz>0.1041</izz>
+        </inertia>
+      </inertial>
+  </link>
+
+
+  <link name="left_wheel_1">
+    <visual>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/visual/llanta.stl</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/collision/llanta.dae</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+    </collision>
+    <inertia>
+          <ixx>0.0227</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0852</iyy>
+          <iyz>0</iyz>
+          <izz>0.1041</izz>
+        </inertia>
+      </inertial>
+  </link>
+
+
+  <link name="left_wheel_2">
+    <visual>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/visual/llanta.stl</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/collision/llanta.dae</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+    </collision>
+    <inertia>
+          <ixx>0.0227</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0852</iyy>
+          <iyz>0</iyz>
+          <izz>0.1041</izz>
+        </inertia>
+      </inertial>
+  </link>
+
+
+  <link name="left_wheel_3">
+    <visual>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/visual/llanta.stl</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/collision/llanta.dae</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+    </collision>
+    <inertia>
+          <ixx>0.0227</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0852</iyy>
+          <iyz>0</iyz>
+          <izz>0.1041</izz>
+        </inertia>
+      </inertial>
+  </link>
+
+
+  <link name="left_wheel_4">
+    <visual>
+      <geometry>
+        <!--esh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/visual/llanta.stl</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <!--mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" /-->
+        <mesh>
+          <scale>0.0254 0.0254 0.0254</scale>
+          <uri>model://axioma/meshes/collision/llanta.dae</uri>
+        </mesh>
+      </geometry>
+      <pose>0 0 0 0 0 0</pose>
+    </collision>
+    <inertia>
+          <ixx>0.0227</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0852</iyy>
+          <iyz>0</iyz>
+          <izz>0.1041</izz>
+        </inertia>
+      </inertial>
+  </link>
+
+
+
+
+<!--joint name="fixed" type="fixed">
+  <parent link="world" />
+  <child link="base_link" />
+</joint-->
+
+
+  <joint name="base_to_wheel1" type="continuous">
+    <parent>base_link</parent>
+    <pose>0 0 0 0.06442 0.07385 0.04068</pose>
+    <child>left_wheel_1</child>
+    <axis>
+      <xyz>0 1 0</xtz>
+    </axis>
+  </joint>
+
+  <joint name="base_to_wheel2" type="continuous">
+    <parent>base_link</parent>
+    <pose>0 0 0 -0.071224 0.07385 0.04068</pose>
+    <child>left_wheel_2</child>
+    <axis>
+      <xyz>0 1 0</xtz>
+    </axis>
+  </joint>
+
+  <joint name="base_to_wheel3" type="continuous">
+    <parent>base_link</parent>
+    <pose>0 0 -3.14159 -0.071224 -0.0625 0.04068</pose>
+    <child>rigth_wheel_3</child>
+    <axis>
+      <xyz>0 1 0</xtz>
+    </axis>
+  </joint>
+
+  <joint name="base_to_wheel4" type="continuous">
+    <parent>base_link</parent>
+    <pose>0 0 -3.14159 0.064423 -0.0625 0.04068"</pose>
+    <child>rigth_wheel_4</child>
+    <axis>
+      <xyz>0 1 0</xtz>
+    </axis>
+  </joint>
+
+  <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'> 
+      <ros>
+        <namespace>/axioma</namespace>
+      </ros> 
+      <!-- wheels -->
+      <left_joint>rigth_wheel_1</left_joint>
+      <left_joint>rigth_wheel_2</left_joint> 
+      <right_joint>left_wheel_3</right_joint>
+      <right_joint>left_wheel_4</right_joint> 
+      <!-- kinematics -->
+      <wheel_separation>0.172833</wheel_separation>
+      <wheel_diameter>0.0458373</wheel_diameter> 
+      <!-- limits -->
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration> 
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf> 
+      <odometry_frame>odom_demo</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame> 
+    </plugin>
+ 
+  </model>
+</sdf>
+

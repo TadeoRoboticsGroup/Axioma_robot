@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<robot name="sam_bot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+<link name="world" />
+
+  <link name="base_link">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/chasis.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  <material name="grey">
+    <color rgba="0.4 0.4 0.4 1.0" />
+  </material>
+    </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/chasis.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="100"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+    <link name="wheel_1">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="black">
+  <color rgba="0 0 0 1"/>
+  </material>
+  </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="10"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+    <link name="wheel_2">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="black"/>
+    </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="10"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+    <link name="wheel_3">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="black"/>
+    </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="10"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+
+    <link name="wheel_4">
+    <visual>
+    <geometry>
+    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="black"/>
+    </visual>
+  <collision>
+  <geometry>
+    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+  </geometry>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+  <inertial>
+  <mass value="10"/>
+  <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+    </link>
+
+    <joint name="fixed" type="fixed">
+      <parent link="world" />
+      <child link="base_link" />
+    </joint>
+
+    <joint name="base_to_wheel1" type="continuous">
+    <parent link="base_link"/>
+    <origin rpy="0 0 0" xyz="0.06442 0.07385 0.04068"/>
+    <child link="wheel_1"/>
+    <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="base_to_wheel2" type="continuous">
+    <parent link="base_link"/>
+    <origin rpy="0 0 0" xyz="-0.071224 0.07385 0.04068"/>
+    <child link="wheel_2"/>
+    <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="base_to_wheel3" type="continuous">
+    <parent link="base_link"/>
+    <origin rpy="0 0 -3.14159" xyz="-0.071224 -0.0625 0.04068"/>
+    <child link="wheel_3"/>
+    <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="base_to_wheel4" type="continuous">
+    <parent link="base_link"/>
+    <origin rpy="0 0 -3.14159" xyz="0.064423 -0.0625 0.04068"/>
+    <child link="wheel_4"/>
+    <axis xyz="0 1 0" />
+    </joint>
+
+
+    <gazebo reference="camera_link">
+    <sensor name="depth_camera" type="depth">
+      <visualize>true</visualize>
+      <update_rate>30.0</update_rate>
+      <camera name="camera">
+        <horizontal_fov>1.047198</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>3</far>
+        </clip>
+      </camera>
+      <plugin name="depth_camera_controller" filename="libgazebo_ros_camera.so">
+        <baseline>0.2</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <frame_name>camera_depth_frame</frame_name>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+        <distortionK1>0</distortionK1>
+        <distortionK2>0</distortionK2>
+        <distortionK3>0</distortionK3>
+        <distortionT1>0</distortionT1>
+        <distortionT2>0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>

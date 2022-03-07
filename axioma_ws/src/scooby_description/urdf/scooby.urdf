@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="scooby">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.21675 -1.2917E-07 0.11346"
+        rpy="0 0 0" />
+      <mass
+        value="7.4313" />
+      <inertia
+        ixx="0.31999"
+        ixy="2.761E-07"
+        ixz="0.014025"
+        iyy="0.58221"
+        iyz="-3.6194E-08"
+        izz="0.76546" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Roda_L_Link">
+    <inertial>
+      <origin
+        xyz="-2.81298471846436E-06 -0.00190513014972926 -1.07259302051244E-06"
+        rpy="0 0 0" />
+      <mass
+        value="1.30641276335021" />
+      <inertia
+        ixx="0.00432108465434952"
+        ixy="-7.93594005604532E-08"
+        ixz="1.46087059834682E-08"
+        iyy="0.00793978090282297"
+        iyz="-3.02597946384683E-08"
+        izz="0.00432105191183642" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Roda_L_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.6 0.6 0.6 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Roda_L_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Roda_L_Joint"
+    type="continuous">
+    <origin
+      xyz="0 0.239 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Roda_L_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Roda_R_Link">
+    <inertial>
+      <origin
+        xyz="6.99451203511892E-07 0.00190513014972904 2.92815760366549E-06"
+        rpy="0 0 0" />
+      <mass
+        value="1.30641276335021" />
+      <inertia
+        ixx="0.00432104871030407"
+        ixy="-1.97327870118571E-08"
+        ixz="9.91656523344508E-09"
+        iyy="0.00793978090282298"
+        iyz="-8.2608636027966E-08"
+        izz="0.00432108785588188" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Roda_R_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.6 0.6 0.6 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Roda_R_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Roda_R_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.238999999999999 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Roda_R_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Garfo_Link">
+    <inertial>
+      <origin
+        xyz="0.00884475068968896 -4.19566628268031E-05 -0.0263954582097287"
+        rpy="0 0 0" />
+      <mass
+        value="0.0563430319700028" />
+      <inertia
+        ixx="6.39445038316326E-05"
+        ixy="1.72308550886072E-08"
+        ixz="1.08977134057462E-05"
+        iyy="6.73269867746683E-05"
+        iyz="-3.73912351557962E-08"
+        izz="2.76031242784496E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Garfo_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Garfo_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Garfo_Joint"
+    type="fixed">
+    <origin
+      xyz="0.394269999999998 0 0.0732499999999887"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Garfo_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Castor_Link">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 0 1.14352971536391E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.348290953635151" />
+      <inertia
+        ixx="0.00049482066193611"
+        ixy="2.36990969633126E-06"
+        ixz="-7.72435411786236E-20"
+        iyy="0.00096680637046514"
+        iyz="-6.56035547092344E-18"
+        izz="0.000494808762570785" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Castor_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Castor_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Castor_Joint"
+    type="fixed">
+    <origin
+      xyz="0.0325011020897832 -0.000163188702011818 -0.0982475529663621"
+      rpy="0 0 0" />
+    <parent
+      link="Garfo_Link" />
+    <child
+      link="Castor_Link" />
+    <axis
+      xyz="0.00502095727558771 0.999987394914574 0" />
+  </joint>
+  <link
+    name="UTS_F_Link">
+    <inertial>
+      <origin
+        xyz="-7.71393398601994E-08 2.52135730494096E-06 -0.0392561091863952"
+        rpy="0 0 0" />
+      <mass
+        value="0.0170733519956026" />
+      <inertia
+        ixx="4.13994216132343E-06"
+        ixy="-2.01964830661405E-12"
+        ixz="2.10210468566173E-11"
+        iyy="4.13977834708148E-06"
+        iyz="-4.07255189237447E-10"
+        izz="6.28341642999686E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/UTS_F_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/UTS_F_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UTS_F_Joint"
+    type="fixed">
+    <origin
+      xyz="0.6 0 -0.02"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="UTS_F_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="UTS_L_Link">
+    <inertial>
+      <origin
+        xyz="2.64910496597381E-06 -0.0334042764769842 -2.51712962362483E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0170733519956026" />
+      <inertia
+        ixx="4.13994210270171E-06"
+        ixy="3.52203444451159E-11"
+        ixz="3.69846150785143E-12"
+        iyy="6.28341642999685E-07"
+        iyz="-4.06273554213128E-10"
+        izz="4.13977840570322E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/UTS_L_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/UTS_L_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UTS_L_Joint"
+    type="fixed">
+    <origin
+      xyz="0.259267515975939 0.270588385101107 -0.0199999999999779"
+      rpy="0 0 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="UTS_L_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="UTS_B_Link">
+    <inertial>
+      <origin
+        xyz="0.0319938908135459 2.52135732214942E-06 7.71393350307292E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.0170733519956026" />
+      <inertia
+        ixx="6.28341642999686E-07"
+        ixy="-4.07255189212023E-10"
+        ixz="-2.10210468561838E-11"
+        iyy="4.13977834708148E-06"
+        iyz="2.0196483067209E-12"
+        izz="4.13994216132343E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/UTS_B_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/UTS_B_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UTS_B_Joint"
+    type="fixed">
+    <origin
+      xyz="-0.199907999437737 0 -0.0199999999999651"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="UTS_B_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="UTS_R_Link">
+    <inertial>
+      <origin
+        xyz="-2.3625442814347E-06 0.033404276476984 2.51707821868896E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0170733519956026" />
+      <inertia
+        ixx="4.13994210038936E-06"
+        ixy="-3.53464798371118E-11"
+        ixz="-3.74928436870209E-12"
+        iyy="6.28341642999685E-07"
+        iyz="-4.06262599651277E-10"
+        izz="4.13977840801553E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/UTS_R_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/UTS_R_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UTS_R_Joint"
+    type="fixed">
+    <origin
+      xyz="0.25927252840668 -0.270588385101102 -0.0199999999999779"
+      rpy="0 0 -1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="UTS_R_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="IMU_F_Link">
+    <inertial>
+      <origin
+        xyz="0.0285384053529935 0.0201456751136063 0.0163092719506913"
+        rpy="0 0 0" />
+      <mass
+        value="0.0287238238507314" />
+      <inertia
+        ixx="6.62063880266102E-06"
+        ixy="-4.29064250222228E-08"
+        ixz="-3.31902748196911E-07"
+        iyy="8.0283840404999E-06"
+        iyz="-1.12404875338097E-09"
+        izz="1.17697789687571E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/IMU_F_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/IMU_F_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="IMU_F_Joint"
+    type="fixed">
+    <origin
+      xyz="0.473193361649098 -0.0204867843471963 0.0772499999999884"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="IMU_F_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  <link
+    name="GPS_Link">
+    
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/GPS_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.992156862745098 0.519607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/GPS_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="GPS_Joint"
+    type="fixed">
+    <origin
+      xyz="0.0 0 0.0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="GPS_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  <link
+    name="Velodyne_Link">
+    <inertial>
+      <origin
+        xyz="-0.000175935048768394 -1.85690131293548E-06 -0.00218953441715264"
+        rpy="0 0 0" />
+      <mass
+        value="0.616657112047671" />
+      <inertia
+        ixx="0.000685216133120311"
+        ixy="5.75061101111654E-09"
+        ixz="-3.17368136017378E-06"
+        iyy="0.00069184918266403"
+        iyz="-3.8153237545175E-08"
+        izz="0.000839096481546046" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Velodyne_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.796078431372549 0.823529411764706 0.937254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Velodyne_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Velodyne_Joint"
+    type="fixed">
+    <origin
+      xyz="0.467200000000406 0 0.178135999995344"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Velodyne_Link" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Care_B_Link">
+    <inertial>
+      <origin
+        xyz="-0.176067724938736 7.37609973100462E-12 0.0225129088617784"
+        rpy="0 0 0" />
+      <mass
+        value="1.8567074034704" />
+      <inertia
+        ixx="0.0426135335199479"
+        ixy="-1.39306141329844E-16"
+        ixz="-6.76460464357832E-05"
+        iyy="0.00238312327270556"
+        iyz="-3.99369956611014E-16"
+        izz="0.0405582007456034" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_B_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_B_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Care_B_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Care_B_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Care_F_Link">
+    <inertial>
+      <origin
+        xyz="0.574607724938728 6.66133814775094E-15 0.022512908861799"
+        rpy="0 0 0" />
+      <mass
+        value="1.8567074034704" />
+      <inertia
+        ixx="0.0426135335199479"
+        ixy="2.81327538039471E-16"
+        ixz="6.76460464358051E-05"
+        iyy="0.00238312327270556"
+        iyz="3.98690766221456E-16"
+        izz="0.0405582007456034" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_F_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_F_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Care_F_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Care_F_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Care_L_Link">
+    <inertial>
+      <origin
+        xyz="0.264330203794624 0.24541257640313 0.0265078961663766"
+        rpy="0 0 0" />
+      <mass
+        value="1.9759772221703" />
+      <inertia
+        ixx="0.00293544716160478"
+        ixy="-4.66058269827048E-05"
+        ixz="0.00194403207385531"
+        iyy="0.0797694999222339"
+        iyz="9.28698331484054E-05"
+        izz="0.0771912041944294" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_L_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_L_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Care_L_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Care_L_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Care_R_Link">
+    <inertial>
+      <origin
+        xyz="0.264376340654929 -0.245409762504832 0.0265033887485013"
+        rpy="0 0 0" />
+      <mass
+        value="1.97563282149046" />
+      <inertia
+        ixx="0.00293446615216118"
+        ixy="4.8077372934562E-05"
+        ixz="0.00194167462287474"
+        iyy="0.0797422362000649"
+        iyz="-9.30136202672319E-05"
+        izz="0.0771647418838509" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_R_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_R_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Care_R_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Care_R_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Care_Down_Velodyne_Link">
+    <inertial>
+      <origin
+        xyz="0.200428165402292 3.77475828372553E-15 0.133865391513595"
+        rpy="0 0 0" />
+      <mass
+        value="2.64433243116652" />
+      <inertia
+        ixx="0.0752744606048509"
+        ixy="-6.35362185348273E-16"
+        ixz="-1.11312586615544E-05"
+        iyy="0.157357698609685"
+        iyz="1.04302544492605E-15"
+        izz="0.232339321084902" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_Down_Velodyne_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_Down_Velodyne_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Care_Down_Velodyne_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Care_Down_Velodyne_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Care_UP_Velodyne_Link">
+    <inertial>
+      <origin
+        xyz="0.20042816540229 7.21644966006352E-15 0.253865391513584"
+        rpy="0 0 0" />
+      <mass
+        value="2.64433243116651" />
+      <inertia
+        ixx="0.0752744606048506"
+        ixy="-6.03012411619649E-16"
+        ixz="-1.11312586615652E-05"
+        iyy="0.157357698609684"
+        iyz="3.75936473714349E-19"
+        izz="0.232339321084901" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_UP_Velodyne_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Care_UP_Velodyne_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Care_UP_Velodyne_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Care_UP_Velodyne_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <!-- <link
+    name="Suporte_Link">
+    <inertial>
+      <origin
+        xyz="0.0293713242309817 8.43769498715119E-15 0.674844412986615"
+        rpy="0 0 0" />
+      <mass
+        value="2.94037397080765" />
+      <inertia
+        ixx="0.153372096477937"
+        ixy="-2.3882952638814E-17"
+        ixz="0.0254651227952844"
+        iyy="0.148755529814575"
+        iyz="4.44512295050179E-16"
+        izz="0.156739156755189" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Suporte_Link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scooby_description/meshes/Suporte_Link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Suporte_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Suporte_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint> -->
+  
+  
+</robot>
