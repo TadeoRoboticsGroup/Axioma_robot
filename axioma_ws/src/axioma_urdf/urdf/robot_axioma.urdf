@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="sam_bot" xmlns:xacro="http://ros.org/wiki/xacro">
 
-<link name="world" />
+
 
   <link name="base_link">
     <visual>
@@ -108,10 +108,7 @@
   </inertial>
     </link>
 
-    <joint name="fixed" type="fixed">
-      <parent link="world" />
-      <child link="base_link" />
-    </joint>
+
 
     <joint name="base_to_wheel1" type="continuous">
     <parent link="base_link"/>
@@ -131,14 +128,14 @@
     <parent link="base_link"/>
     <origin rpy="0 0 -3.14159" xyz="-0.071224 -0.0625 0.04068"/>
     <child link="wheel_3"/>
-    <axis xyz="0 1 0" />
+    <axis xyz="0 -1 0" />
     </joint>
 
     <joint name="base_to_wheel4" type="continuous">
     <parent link="base_link"/>
     <origin rpy="0 0 -3.14159" xyz="0.064423 -0.0625 0.04068"/>
     <child link="wheel_4"/>
-    <axis xyz="0 1 0" />
+    <axis xyz="0 -1 0" />
     </joint>
 
 

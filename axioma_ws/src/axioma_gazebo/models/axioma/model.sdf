@@ -171,7 +171,7 @@
         </sensor>
       </link>
 
-      <link name="camera_link">
+      <link name="camera_link"> 
         <pose>0 -0.1 0.13 0 0 1.5707</pose>
         <inertial> 
           <inertia>
@@ -210,7 +210,8 @@
   
 
     <link name='left_wheel_1'> 
-      <pose>-0.072 0.0644 0.04068 0 0 -1.5707</pose>
+      <!--pose>-0.072 0.0644 0.04068 0 0 -1.5707</pose-->
+      <pose>0.0644  0.072 0.04068 0 0 0</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -226,7 +227,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/llant.obj</uri>
+            <uri>model://axioma/meshes/left_wheel.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -240,7 +241,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/llant.obj</uri>
+          <uri>model://axioma/meshes/left_wheel.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -267,7 +268,8 @@
     </link>
 
     <link name='left_wheel_2'> 
-      <pose>-0.072 -0.0705 0.04068 0 0 -1.5707</pose> 
+      <!--pose>-0.072 -0.0705 0.04068 0 0 -1.5707</pose--> 
+      <pose>-0.0713 0.072 0.04068 0 0 0</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -283,7 +285,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/llant.obj</uri>
+            <uri>model://axioma/meshes/left_wheel.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -297,7 +299,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/llant.obj</uri>
+          <uri>model://axioma/meshes/left_wheel.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -324,7 +326,8 @@
     </link>
 
     <link name='right_wheel_3'> 
-      <pose>0.0624 -0.0705 0.04068 0 0 1.5707</pose>
+      <!--pose>0.0624 -0.0705 0.04068 0 0 1.5707</pose-->
+      <pose>0.0644 -0.0624 0.04068 0 0 0</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -340,7 +343,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/llant.obj</uri>
+            <uri>model://axioma/meshes/right_wheel.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -354,7 +357,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/llant.obj</uri>
+          <uri>model://axioma/meshes/right_wheel.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -381,7 +384,8 @@
     </link>
 
     <link name='right_wheel_4'> 
-      <pose>0.0624 0.0644 0.04068 0 0 1.5707</pose>
+      <!--pose>0.0624 0.0644 0.04068 0 0 1.5707</pose-->
+      <pose>-0.0713 -0.0624 0.04068 0 0 0</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -397,7 +401,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/llant.obj</uri>
+            <uri>model://axioma/meshes/right_wheel.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -411,7 +415,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/llant.obj</uri>
+          <uri>model://axioma/meshes/right_wheel.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -470,7 +474,7 @@
       <parent>chassis</parent>
       <child>left_wheel_1</child>
       <axis>
-        <xyz>0 -1 0</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -482,7 +486,7 @@
       <parent>chassis</parent>
       <child>left_wheel_2</child>
       <axis>
-        <xyz>0 -1 0</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
