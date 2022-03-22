@@ -3,8 +3,8 @@
   <model name='Axioma'>
     <pose>0 0 0 0 0 0</pose>
 
-    <link name='chassis'>
-    <pose>0 0 0 0 0 0</pose>
+    <link name='base_link'>
+    <pose>0 0 0 1.5707 0 0</pose>
     <inertial>
         <mass>1</mass>
         <inertia>
@@ -17,12 +17,12 @@
         </inertia>
       </inertial>
       <visual name='visual'> 
-      <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-          <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/chasis.obj</uri>
-        </mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma/meshes/chasiss.obj</uri>
+          </mesh>
         </geometry>
         <material>
           <script>
@@ -31,6 +31,15 @@
             <name>Dolly/fur</name>
           </script>
         </material>
+      </visual>
+      <visual name='visual'> 
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma/meshes/chasiss.obj</uri>
+          </mesh>
+        </geometry>
       </visual>
     </link>
 
@@ -94,7 +103,7 @@
                 <remapping>~/out:=scan</remapping>
             </ros>
             <output_type>sensor_msgs/LaserScan</output_type>
-            <frame_name>chassis</frame_name>
+            <frame_name>base_link</frame_name>
           </plugin>  
         </sensor>
         <sensor name="intel_realsense_r200_depth" type="depth">
@@ -172,7 +181,7 @@
       </link>
 
       <link name="camera_link"> 
-        <pose>0 -0.1 0.13 0 0 1.5707</pose>
+        <pose>-0.14 0 0.12 -3.141516 0 0</pose>
         <inertial> 
           <inertia>
             <ixx>0.001</ixx>
@@ -211,7 +220,7 @@
 
     <link name='left_wheel_1'> 
       <!--pose>-0.072 0.0644 0.04068 0 0 -1.5707</pose-->
-      <pose>0.0644  0.072 0.04068 0 0 0</pose>
+      <pose>0.0644  0.072 0.04068 -1.5707 0 0</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -227,7 +236,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/left_wheel.obj</uri>
+            <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -241,7 +250,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/left_wheel.obj</uri>
+          <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -269,7 +278,7 @@
 
     <link name='left_wheel_2'> 
       <!--pose>-0.072 -0.0705 0.04068 0 0 -1.5707</pose--> 
-      <pose>-0.0713 0.072 0.04068 0 0 0</pose>
+      <pose>-0.0713 0.072 0.04068 -1.5707 0 0</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -285,7 +294,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/left_wheel.obj</uri>
+            <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -299,7 +308,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/left_wheel.obj</uri>
+          <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -327,7 +336,7 @@
 
     <link name='right_wheel_3'> 
       <!--pose>0.0624 -0.0705 0.04068 0 0 1.5707</pose-->
-      <pose>0.0644 -0.0624 0.04068 0 0 0</pose>
+      <pose>0.0644 -0.0624 0.04068 1.5707 0 0</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -343,7 +352,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/right_wheel.obj</uri>
+            <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -357,7 +366,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/right_wheel.obj</uri>
+          <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -385,7 +394,7 @@
 
     <link name='right_wheel_4'> 
       <!--pose>0.0624 0.0644 0.04068 0 0 1.5707</pose-->
-      <pose>-0.0713 -0.0624 0.04068 0 0 0</pose>
+      <pose>-0.0713 -0.0624 0.04068 1.5707 0 0</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -401,7 +410,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/right_wheel.obj</uri>
+            <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -415,7 +424,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/right_wheel.obj</uri>
+          <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -447,7 +456,7 @@
 
 
     <joint name="imu_joint" type="fixed">
-        <parent>chassis</parent>
+        <parent>base_link</parent>
         <child>imu_link</child> 
         <axis>
           <xyz>0 0 0</xyz>
@@ -455,15 +464,15 @@
     </joint>
 
     <joint name="camera_joint" type="fixed">
-        <parent>chassis</parent>
+        <parent>base_link</parent>
         <child>camera_link</child> 
         <axis>
-          <xyz>0 0 10</xyz>
+          <xyz>0 0 0</xyz>
         </axis>
     </joint>
 
     <joint name="lidar_joint" type="fixed">
-        <parent>chassis</parent>
+        <parent>base_link</parent>
         <child>base_scan</child> 
         <axis>
           <xyz>0 0 0</xyz>
@@ -471,10 +480,10 @@
     </joint>
 
     <joint name='left_wheel_joint_1' type='revolute'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>left_wheel_1</child>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>0 0 1</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -483,10 +492,10 @@
     </joint>
 
     <joint name='left_wheel_joint_2' type='revolute'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>left_wheel_2</child>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>0 0 1</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -495,10 +504,10 @@
     </joint>
 
     <joint name='right_wheel_joint_3' type='revolute'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>right_wheel_3</child>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>0 0 -1</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -507,10 +516,10 @@
     </joint>
 
     <joint name='right_wheel_joint_4' type='revolute'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>right_wheel_4</child>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>0 0 -1</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -523,9 +532,9 @@
 <plugin name='skid_steer_drive' filename='libgazebo_ros_diff_drive.so'>
         <ros>
           <!-- Set namespace -->
-          <namespace>/axioma</namespace> 
+          <namespace>/turtle1</namespace> 
           <!-- Remap default topics -->
-          <argument>cmd_vel:=cmd_demo</argument>
+          <argument>cmd_vel:=cmd_vel</argument>
           <argument>odom:=odom_demo</argument>
         </ros> 
         <!-- Update rate -->

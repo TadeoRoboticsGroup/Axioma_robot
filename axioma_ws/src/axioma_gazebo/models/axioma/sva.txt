@@ -1,253 +1,559 @@
-<?xml version="1.0"?>
+
+<?xml version="1.0" ?>
 <sdf version="1.6">
   <model name='Axioma'>
-  <!--robot name="sam_bot" xmlns:xacro="http://ros.org/wiki/xacro"-->
-  <pose>0 0 0 0 0 0</pose>
+    <pose>0 0 0 0 0 0</pose>
 
-  <!--link name="world" /-->
-
-  <link name="base_link">
-    <visual>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/visual/chasis.stl" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/visual/chasis.stl</uri>
-        </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-      <material name="grey">
-        <color rgba="0.4 0.4 0.4 1.0" />
-      </material>
-    </visual>
-    <collision>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/collision/chasis.dae" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/collision/chasis.dae</uri>
-        </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-    </collision>
+    <link name='chassis'>
+    <pose>0 0 0 0 0 0</pose>
     <inertial>
-        <mass>1.0</mass>
+        <mass>1</mass>
         <inertia>
           <ixx>0.0227</ixx>
           <ixy>0</ixy>
-          <ixz>0</ixz>
+          <ixz>0</ixz> 
           <iyy>0.0852</iyy>
           <iyz>0</iyz>
           <izz>0.1041</izz>
         </inertia>
       </inertial>
-  </link>
-
-
-  <link name="left_wheel_1">
-    <visual>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/visual/llanta.stl</uri>
-        </mesh>
-      </geometry>
+      <visual name='visual'> 
       <pose>0 0 0 0 0 0</pose>
-      <material name="black">
-        <color rgba="0 0 0 1"/>
-      </material>
-    </visual>
-    <collision>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/collision/llanta.dae</uri>
+        <geometry>
+          <mesh>
+          <scale>1 1 1</scale>
+          <uri>model://axioma/meshes/chasis.obj</uri>
         </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-    </collision>
-    <inertia>
-          <ixx>0.0227</ixx>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://dolly/materials/scripts</uri>
+            <uri>model://dolly/materials/textures</uri>
+            <name>Dolly/fur</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+
+    <link name="base_scan">
+    <pose>0 0 0.15 0 0 1.5708</pose>
+        <inertial> 
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0.000</ixy>
+            <ixz>0.000</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0.000</iyz>
+            <izz>0.001</izz>
+          </inertia>
+          <mass>0.125</mass>
+        </inertial>
+        <collision name="lidar_sensor_collision"> 
+          <geometry>
+            <cylinder>
+              <radius>0.035</radius>
+              <length>0.030</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="lidar_sensor_visual"> 
+          <geometry>
+            <cylinder>
+              <radius>0.035</radius>
+              <length>0.030</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <sensor name="hls_lfcd_lds" type="ray">
+          <pose>0 0 0 0 0 0</pose>
+          <always_on>true</always_on>
+          <visualize>true</visualize> 
+          <update_rate>5</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>360</samples>
+                <resolution>1.000000</resolution>
+                <min_angle>0.000000</min_angle>
+                <max_angle>6.280000</max_angle>
+              </horizontal>
+            </scan>
+            <range>
+              <min>0.120000</min>
+              <max>3.5</max>
+              <resolution>0.001000</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.01</stddev>
+            </noise>
+          </ray>
+          <plugin name="turtlebot3_laserscan" filename="libgazebo_ros_ray_sensor.so">
+            <ros>
+              <namespace>/axioma</namespace> 
+                <remapping>~/out:=scan</remapping>
+            </ros>
+            <output_type>sensor_msgs/LaserScan</output_type>
+            <frame_name>chassis</frame_name>
+          </plugin>  
+        </sensor>
+        <sensor name="intel_realsense_r200_depth" type="depth">
+          <always_on>1</always_on>
+          <update_rate>5</update_rate>
+          <pose>0 0.4 0 -1.5708 0 0</pose>
+          <camera name="realsense_depth_camera">
+          </camera>
+          <plugin name="intel_realsense_r200_depth_driver" filename="libgazebo_ros_camera.so">
+            <ros>
+            </ros>
+            <camera_name>intel_realsense_r200_depth</camera_name>
+            <frame_name>camera_depth_frame</frame_name>
+            <hack_baseline>0.07</hack_baseline>
+            <min_depth>0.001</min_depth>
+            <max_depth>5.0</max_depth>
+          </plugin>
+        </sensor>
+      </link>
+
+    <link name="imu_link">
+    <pose>0 0 0.12 0 0 0</pose>
+        <sensor name="tb3_imu" type="imu">
+          <always_on>true</always_on>
+          <update_rate>200</update_rate>
+          <imu>
+            <angular_velocity>
+              <x>
+                <noise type="gaussian">
+                  <mean>0.0</mean>
+                  <stddev>2e-4</stddev>
+                </noise>
+              </x>
+              <y>
+                <noise type="gaussian">
+                  <mean>0.0</mean>
+                  <stddev>2e-4</stddev>
+                </noise>
+              </y>
+              <z>
+                <noise type="gaussian">
+                  <mean>0.0</mean>
+                  <stddev>2e-4</stddev>
+                </noise>
+              </z>
+            </angular_velocity>
+            <linear_acceleration>
+              <x>
+                <noise type="gaussian">
+                  <mean>0.0</mean>
+                  <stddev>1.7e-2</stddev>
+                </noise>
+              </x>
+              <y>
+                <noise type="gaussian">
+                  <mean>0.0</mean>
+                  <stddev>1.7e-2</stddev>
+                </noise>
+              </y>
+              <z>
+                <noise type="gaussian">
+                  <mean>0.0</mean>
+                  <stddev>1.7e-2</stddev>
+                </noise>
+              </z>
+            </linear_acceleration>
+          </imu>
+          <plugin name="turtlebot3_imu" filename="libgazebo_ros_imu_sensor.so">
+            <ros>
+              <namespace>/axioma</namespace>
+              <remapping>~/out:=imu</remapping>
+            </ros>
+          </plugin>
+        </sensor>
+      </link>
+
+      <link name="camera_link"> 
+        <pose>-0.14 0 0.12 -3.141516 0 0</pose>
+        <inertial> 
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0.000</ixy>
+            <ixz>0.000</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0.000</iyz>
+            <izz>0.001</izz>
+          </inertia>
+          <mass>0.035</mass>
+        </inertial>
+        <collision name="collision"> 
+          <geometry>
+            <box>
+              <size>0.002 0.020 0.002</size>
+            </box>
+          </geometry>
+        </collision>  
+        <sensor name="intel_realsense_r200_depth" type="depth">
+          <always_on>1</always_on>
+          <update_rate>5</update_rate> 
+          <camera name="realsense_depth_camera">
+          </camera>
+          <plugin name="intel_realsense_r200_depth_driver" filename="libgazebo_ros_camera.so">
+            <ros>
+            </ros>
+            <camera_name>intel_realsense_r200_depth</camera_name>
+            <frame_name>camera_depth_frame</frame_name>
+            <hack_baseline>0.07</hack_baseline>
+            <min_depth>0.001</min_depth>
+            <max_depth>5.0</max_depth>
+          </plugin>
+        </sensor>
+      </link>
+  
+
+    <link name='left_wheel_1'> 
+      <!--pose>-0.072 0.0644 0.04068 0 0 -1.5707</pose-->
+      <pose>0.0644  0.072 0.04068 -1.5707 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0029</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0852</iyy>
+          <iyy>0.0029</iyy>
           <iyz>0</iyz>
-          <izz>0.1041</izz>
+          <izz>0.0056</izz>
         </inertia>
       </inertial>
-  </link>
-
-
-  <link name="left_wheel_2">
-    <visual>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/visual/llanta.stl</uri>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/collision/llanta.dae</uri>
+        </geometry>
+        <material>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+          <scale>1 1 1</scale>
+          <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-    </collision>
-    <inertia>
-          <ixx>0.0227</ixx>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.01</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='left_wheel_2'> 
+      <!--pose>-0.072 -0.0705 0.04068 0 0 -1.5707</pose--> 
+      <pose>-0.0713 0.072 0.04068 -1.5707 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0029</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0852</iyy>
+          <iyy>0.0029</iyy>
           <iyz>0</iyz>
-          <izz>0.1041</izz>
+          <izz>0.0056</izz>
         </inertia>
       </inertial>
-  </link>
-
-
-  <link name="left_wheel_3">
-    <visual>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/visual/llanta.stl</uri>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/collision/llanta.dae</uri>
+        </geometry>
+        <material>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+          <scale>1 1 1</scale>
+          <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-    </collision>
-    <inertia>
-          <ixx>0.0227</ixx>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.01</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='right_wheel_3'> 
+      <!--pose>0.0624 -0.0705 0.04068 0 0 1.5707</pose-->
+      <pose>0.0644 -0.0624 0.04068 1.5707 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0029</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0852</iyy>
+          <iyy>0.0029</iyy>
           <iyz>0</iyz>
-          <izz>0.1041</izz>
+          <izz>0.0056</izz>
         </inertia>
       </inertial>
-  </link>
-
-
-  <link name="left_wheel_4">
-    <visual>
-      <geometry>
-        <!--esh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/visual/llanta.stl</uri>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <geometry>
-        <!--mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" /-->
-        <mesh>
-          <scale>0.0254 0.0254 0.0254</scale>
-          <uri>model://axioma/meshes/collision/llanta.dae</uri>
+        </geometry>
+        <material>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+          <scale>1 1 1</scale>
+          <uri>model://axioma/meshes/wheel.obj</uri>
         </mesh>
-      </geometry>
-      <pose>0 0 0 0 0 0</pose>
-    </collision>
-    <inertia>
-          <ixx>0.0227</ixx>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.01</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='right_wheel_4'> 
+      <!--pose>0.0624 0.0644 0.04068 0 0 1.5707</pose-->
+      <pose>-0.0713 -0.0624 0.04068 1.5707 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0029</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0852</iyy>
+          <iyy>0.0029</iyy>
           <iyz>0</iyz>
-          <izz>0.1041</izz>
+          <izz>0.0056</izz>
         </inertia>
       </inertial>
-  </link>
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma/meshes/wheel.obj</uri>
+        </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+          <scale>1 1 1</scale>
+          <uri>model://axioma/meshes/wheel.obj</uri>
+        </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.01</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
 
 
 
 
-<!--joint name="fixed" type="fixed">
-  <parent link="world" />
-  <child link="base_link" />
-</joint-->
 
 
-  <joint name="base_to_wheel1" type="continuous">
-    <parent>base_link</parent>
-    <pose>0 0 0 0.06442 0.07385 0.04068</pose>
-    <child>left_wheel_1</child>
-    <axis>
-      <xyz>0 1 0</xtz>
-    </axis>
-  </joint>
+    <joint name="imu_joint" type="fixed">
+        <parent>chassis</parent>
+        <child>imu_link</child> 
+        <axis>
+          <xyz>0 0 0</xyz>
+        </axis>
+    </joint>
 
-  <joint name="base_to_wheel2" type="continuous">
-    <parent>base_link</parent>
-    <pose>0 0 0 -0.071224 0.07385 0.04068</pose>
-    <child>left_wheel_2</child>
-    <axis>
-      <xyz>0 1 0</xtz>
-    </axis>
-  </joint>
+    <joint name="camera_joint" type="fixed">
+        <parent>chassis</parent>
+        <child>camera_link</child> 
+        <axis>
+          <xyz>0 0 10</xyz>
+        </axis>
+    </joint>
 
-  <joint name="base_to_wheel3" type="continuous">
-    <parent>base_link</parent>
-    <pose>0 0 -3.14159 -0.071224 -0.0625 0.04068</pose>
-    <child>rigth_wheel_3</child>
-    <axis>
-      <xyz>0 1 0</xtz>
-    </axis>
-  </joint>
+    <joint name="lidar_joint" type="fixed">
+        <parent>chassis</parent>
+        <child>base_scan</child> 
+        <axis>
+          <xyz>0 0 0</xyz>
+        </axis>
+    </joint>
 
-  <joint name="base_to_wheel4" type="continuous">
-    <parent>base_link</parent>
-    <pose>0 0 -3.14159 0.064423 -0.0625 0.04068"</pose>
-    <child>rigth_wheel_4</child>
-    <axis>
-      <xyz>0 1 0</xtz>
-    </axis>
-  </joint>
+    <joint name='left_wheel_joint_1' type='revolute'>
+      <parent>chassis</parent>
+      <child>left_wheel_1</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>1.79769e+308</lower>
+          <upper>-1.79769e+308</upper>
+        </limit>
+      </axis>
+    </joint>
 
-  <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'> 
-      <ros>
-        <namespace>/axioma</namespace>
-      </ros> 
-      <!-- wheels -->
-      <left_joint>rigth_wheel_1</left_joint>
-      <left_joint>rigth_wheel_2</left_joint> 
-      <right_joint>left_wheel_3</right_joint>
-      <right_joint>left_wheel_4</right_joint> 
-      <!-- kinematics -->
-      <wheel_separation>0.172833</wheel_separation>
-      <wheel_diameter>0.0458373</wheel_diameter> 
-      <!-- limits -->
-      <max_wheel_torque>20</max_wheel_torque>
-      <max_wheel_acceleration>1.0</max_wheel_acceleration> 
-      <!-- output -->
-      <publish_odom>true</publish_odom>
-      <publish_odom_tf>true</publish_odom_tf> 
-      <odometry_frame>odom_demo</odometry_frame>
-      <robot_base_frame>base_link</robot_base_frame> 
-    </plugin>
+    <joint name='left_wheel_joint_2' type='revolute'>
+      <parent>chassis</parent>
+      <child>left_wheel_2</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>1.79769e+308</lower>
+          <upper>-1.79769e+308</upper>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name='right_wheel_joint_3' type='revolute'>
+      <parent>chassis</parent>
+      <child>right_wheel_3</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>1.79769e+308</lower>
+          <upper>-1.79769e+308</upper>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name='right_wheel_joint_4' type='revolute'>
+      <parent>chassis</parent>
+      <child>right_wheel_4</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>1.79769e+308</lower>
+          <upper>-1.79769e+308</upper>
+        </limit>
+      </axis>
+    </joint>
+
+
  
+<plugin name='skid_steer_drive' filename='libgazebo_ros_diff_drive.so'>
+        <ros>
+          <!-- Set namespace -->
+          <namespace>/axioma</namespace> 
+          <!-- Remap default topics -->
+          <argument>cmd_vel:=cmd_demo</argument>
+          <argument>odom:=odom_demo</argument>
+        </ros> 
+        <!-- Update rate -->
+        <update_rate>500</update_rate> 
+        <!-- Number of wheel pairs -->
+        <num_wheel_pairs>2</num_wheel_pairs> 
+        <!-- wheels0 -->
+        <left_joint>left_wheel_joint_1</left_joint>
+        <right_joint>right_wheel_joint_4</right_joint> 
+        <!-- wheels1-->
+        <left_joint>left_wheel_joint_2</left_joint>
+        <right_joint>right_wheel_joint_3</right_joint> 
+        <!-- kinematics -->
+        <wheel_separation>0.1725</wheel_separation>
+        <wheel_separation>0.1725</wheel_separation> 
+        <wheel_diameter>0.0762</wheel_diameter>
+        <wheel_diameter>0.0762</wheel_diameter>         
+        <!-- limits -->
+        <max_wheel_torque>25</max_wheel_torque>
+        <max_wheel_acceleration>2</max_wheel_acceleration> 
+        <!-- output -->
+        <publish_odom>true</publish_odom>
+        <publish_odom_tf>true</publish_odom_tf>
+        <publish_wheel_tf>true</publish_wheel_tf> 
+        <odometry_frame>odom_demo</odometry_frame>
+        <robot_base_frame>chassis</robot_base_frame> 
+      </plugin>
+
   </model>
 </sdf>
-

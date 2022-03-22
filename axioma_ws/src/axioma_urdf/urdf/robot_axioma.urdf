@@ -6,7 +6,7 @@
   <link name="base_link">
     <visual>
     <geometry>
-    <mesh filename="package://axioma_urdf/meshes/visual/chasis.stl" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/visual/chasiss.stl" scale="1 1 1" />
     </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
   <material name="grey">
@@ -15,7 +15,7 @@
     </visual>
   <collision>
   <geometry>
-    <mesh filename="package://axioma_urdf/meshes/collision/chasis.dae" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/collision/chasiss.dae" scale="1 1 1" />
   </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
   </collision>
@@ -28,7 +28,7 @@
     <link name="wheel_1">
     <visual>
     <geometry>
-    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/visual/wheel.stl" scale="1 1 1" />
     </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
     <material name="black">
@@ -37,7 +37,7 @@
   </visual>
   <collision>
   <geometry>
-    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/collision/wheel.dae" scale="1 1 1" />
   </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
   </collision>
@@ -50,14 +50,14 @@
     <link name="wheel_2">
     <visual>
     <geometry>
-    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/visual/wheel.stl" scale="1 1 1" />
     </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
     <material name="black"/>
     </visual>
   <collision>
   <geometry>
-    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/collision/wheel.dae" scale="1 1 1" />
   </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
   </collision>
@@ -70,14 +70,14 @@
     <link name="wheel_3">
     <visual>
     <geometry>
-    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/visual/wheel.stl" scale="1 1 1" />
     </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
     <material name="black"/>
     </visual>
   <collision>
   <geometry>
-    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/collision/wheel.dae" scale="1 1 1" />
   </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
   </collision>
@@ -91,14 +91,14 @@
     <link name="wheel_4">
     <visual>
     <geometry>
-    <mesh filename="package://axioma_urdf/meshes/visual/llanta.stl" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/visual/wheel.stl" scale="1 1 1" />
     </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
     <material name="black"/>
     </visual>
   <collision>
   <geometry>
-    <mesh filename="package://axioma_urdf/meshes/collision/llanta.dae" scale="1 1 1" />
+    <mesh filename="package://axioma_urdf/meshes/collision/wheel.dae" scale="1 1 1" />
   </geometry>
   <origin rpy="0 0 0" xyz="0 0 0"/>
   </collision>
@@ -112,28 +112,28 @@
 
     <joint name="base_to_wheel1" type="continuous">
     <parent link="base_link"/>
-    <origin rpy="0 0 0" xyz="0.06442 0.07385 0.04068"/>
+    <origin rpy="3.141516 0 0" xyz="0.06442 0.07385 0.04068"/>
     <child link="wheel_1"/>
     <axis xyz="0 1 0" />
     </joint>
 
     <joint name="base_to_wheel2" type="continuous">
     <parent link="base_link"/>
-    <origin rpy="0 0 0" xyz="-0.071224 0.07385 0.04068"/>
+    <origin rpy="3.141516 0 0" xyz="-0.071224 0.07385 0.04068"/>
     <child link="wheel_2"/>
     <axis xyz="0 1 0" />
     </joint>
 
     <joint name="base_to_wheel3" type="continuous">
     <parent link="base_link"/>
-    <origin rpy="0 0 -3.14159" xyz="-0.071224 -0.0625 0.04068"/>
+    <origin rpy="0 0 0" xyz="-0.071224 -0.0625 0.04068"/>
     <child link="wheel_3"/>
     <axis xyz="0 -1 0" />
     </joint>
 
     <joint name="base_to_wheel4" type="continuous">
     <parent link="base_link"/>
-    <origin rpy="0 0 -3.14159" xyz="0.064423 -0.0625 0.04068"/>
+    <origin rpy="0 0 0" xyz="0.064423 -0.0625 0.04068"/>
     <child link="wheel_4"/>
     <axis xyz="0 -1 0" />
     </joint>
