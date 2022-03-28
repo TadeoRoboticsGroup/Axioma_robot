@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name='Axioma'>
-    <pose>0 0 0 0 0 0</pose>
+    
 
-    <link name='base_link'>
-    <pose>0 0 0 1.5707 0 0</pose>
+    <link name='chassis'>
+    <pose>0 0 0 0 0 0</pose>
     <inertial>
         <mass>1</mass>
         <inertia>
@@ -17,29 +17,14 @@
         </inertia>
       </inertial>
       <visual name='visual'> 
-        <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/chasiss.obj</uri>
-          </mesh>
+          <scale>1 1 1</scale>
+          <uri>model://axioma/meshes/chasis.obj</uri>
+        </mesh>
         </geometry>
-        <material>
-          <script>
-            <uri>model://dolly/materials/scripts</uri>
-            <uri>model://dolly/materials/textures</uri>
-            <name>Dolly/fur</name>
-          </script>
-        </material>
-      </visual>
-      <visual name='visual'> 
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/chasiss.obj</uri>
-          </mesh>
-        </geometry>
+
       </visual>
     </link>
 
@@ -76,12 +61,12 @@
           <pose>0 0 0 0 0 0</pose>
           <always_on>true</always_on>
           <visualize>true</visualize> 
-          <update_rate>5</update_rate>
+          <update_rate>10</update_rate>
           <ray>
             <scan>
               <horizontal>
                 <samples>360</samples>
-                <resolution>1.000000</resolution>
+                <resolution>2.000000</resolution>
                 <min_angle>0.000000</min_angle>
                 <max_angle>6.280000</max_angle>
               </horizontal>
@@ -89,24 +74,25 @@
             <range>
               <min>0.120000</min>
               <max>3.5</max>
-              <resolution>0.001000</resolution>
+              <resolution>0.02000</resolution>
             </range>
-            <noise>
+            <!--noise>
               <type>gaussian</type>
               <mean>0.0</mean>
               <stddev>0.01</stddev>
-            </noise>
+            </noise-->
           </ray>
-          <plugin name="turtlebot3_laserscan" filename="libgazebo_ros_ray_sensor.so">
+          <plugin name="laserscan" filename="libgazebo_ros_ray_sensor.so">
             <ros>
               <namespace>/axioma</namespace> 
                 <remapping>~/out:=scan</remapping>
             </ros>
+            
             <output_type>sensor_msgs/LaserScan</output_type>
-            <frame_name>base_link</frame_name>
+            <frame_name>chassis</frame_name>
           </plugin>  
         </sensor>
-        <sensor name="intel_realsense_r200_depth" type="depth">
+        <!--sensor name="intel_realsense_r200_depth" type="depth">
           <always_on>1</always_on>
           <update_rate>5</update_rate>
           <pose>0 0.4 0 -1.5708 0 0</pose>
@@ -121,14 +107,14 @@
             <min_depth>0.001</min_depth>
             <max_depth>5.0</max_depth>
           </plugin>
-        </sensor>
+        </sensor-->
       </link>
 
     <link name="imu_link">
     <pose>0 0 0.12 0 0 0</pose>
         <sensor name="tb3_imu" type="imu">
           <always_on>true</always_on>
-          <update_rate>200</update_rate>
+          <update_rate>100</update_rate>
           <imu>
             <angular_velocity>
               <x>
@@ -180,8 +166,8 @@
         </sensor>
       </link>
 
-      <link name="camera_link"> 
-        <pose>-0.14 0 0.12 -3.141516 0 0</pose>
+      <link name="camera_link">
+        <pose>0 -0.1 0.13 0 0 1.5707</pose>
         <inertial> 
           <inertia>
             <ixx>0.001</ixx>
@@ -200,7 +186,7 @@
             </box>
           </geometry>
         </collision>  
-        <sensor name="intel_realsense_r200_depth" type="depth">
+        <!--sensor name="intel_realsense_r200_depth" type="depth">
           <always_on>1</always_on>
           <update_rate>5</update_rate> 
           <camera name="realsense_depth_camera">
@@ -214,13 +200,12 @@
             <min_depth>0.001</min_depth>
             <max_depth>5.0</max_depth>
           </plugin>
-        </sensor>
+        </sensor-->
       </link>
   
 
     <link name='left_wheel_1'> 
-      <!--pose>-0.072 0.0644 0.04068 0 0 -1.5707</pose-->
-      <pose>0.0644  0.072 0.04068 -1.5707 0 0</pose>
+      <pose>-0.072 0.0644 0.04068 0 0 -1.5707</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -236,7 +221,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/wheel.obj</uri>
+            <uri>model://axioma/meshes/llant.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -250,7 +235,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/wheel.obj</uri>
+          <uri>model://axioma/meshes/llant.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -277,8 +262,7 @@
     </link>
 
     <link name='left_wheel_2'> 
-      <!--pose>-0.072 -0.0705 0.04068 0 0 -1.5707</pose--> 
-      <pose>-0.0713 0.072 0.04068 -1.5707 0 0</pose>
+      <pose>-0.072 -0.0705 0.04068 0 0 -1.5707</pose> 
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -294,7 +278,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/wheel.obj</uri>
+            <uri>model://axioma/meshes/llant.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -308,7 +292,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/wheel.obj</uri>
+          <uri>model://axioma/meshes/llant.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -335,8 +319,7 @@
     </link>
 
     <link name='right_wheel_3'> 
-      <!--pose>0.0624 -0.0705 0.04068 0 0 1.5707</pose-->
-      <pose>0.0644 -0.0624 0.04068 1.5707 0 0</pose>
+      <pose>0.0624 -0.0705 0.04068 0 0 1.5707</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -352,7 +335,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/wheel.obj</uri>
+            <uri>model://axioma/meshes/llant.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -366,7 +349,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/wheel.obj</uri>
+          <uri>model://axioma/meshes/llant.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -393,8 +376,7 @@
     </link>
 
     <link name='right_wheel_4'> 
-      <!--pose>0.0624 0.0644 0.04068 0 0 1.5707</pose-->
-      <pose>-0.0713 -0.0624 0.04068 1.5707 0 0</pose>
+      <pose>0.0624 0.0644 0.04068 0 0 1.5707</pose>
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -410,7 +392,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://axioma/meshes/wheel.obj</uri>
+            <uri>model://axioma/meshes/llant.obj</uri>
         </mesh>
         </geometry>
         <material>
@@ -424,7 +406,7 @@
         <geometry>
           <mesh>
           <scale>1 1 1</scale>
-          <uri>model://axioma/meshes/wheel.obj</uri>
+          <uri>model://axioma/meshes/llant.obj</uri>
         </mesh>
         </geometry>
         <surface>
@@ -456,7 +438,7 @@
 
 
     <joint name="imu_joint" type="fixed">
-        <parent>base_link</parent>
+        <parent>chassis</parent>
         <child>imu_link</child> 
         <axis>
           <xyz>0 0 0</xyz>
@@ -464,15 +446,15 @@
     </joint>
 
     <joint name="camera_joint" type="fixed">
-        <parent>base_link</parent>
+        <parent>chassis</parent>
         <child>camera_link</child> 
         <axis>
-          <xyz>0 0 0</xyz>
+          <xyz>0 0 10</xyz>
         </axis>
     </joint>
 
     <joint name="lidar_joint" type="fixed">
-        <parent>base_link</parent>
+        <parent>chassis</parent>
         <child>base_scan</child> 
         <axis>
           <xyz>0 0 0</xyz>
@@ -480,10 +462,10 @@
     </joint>
 
     <joint name='left_wheel_joint_1' type='revolute'>
-      <parent>base_link</parent>
+      <parent>chassis</parent>
       <child>left_wheel_1</child>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>0 -1 0</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -492,10 +474,10 @@
     </joint>
 
     <joint name='left_wheel_joint_2' type='revolute'>
-      <parent>base_link</parent>
+      <parent>chassis</parent>
       <child>left_wheel_2</child>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>0 -1 0</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -504,10 +486,10 @@
     </joint>
 
     <joint name='right_wheel_joint_3' type='revolute'>
-      <parent>base_link</parent>
+      <parent>chassis</parent>
       <child>right_wheel_3</child>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -516,10 +498,10 @@
     </joint>
 
     <joint name='right_wheel_joint_4' type='revolute'>
-      <parent>base_link</parent>
+      <parent>chassis</parent>
       <child>right_wheel_4</child>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
           <lower>1.79769e+308</lower>
           <upper>-1.79769e+308</upper>
@@ -528,17 +510,16 @@
     </joint>
 
 
- 
-<plugin name='skid_steer_drive' filename='libgazebo_ros_diff_drive.so'>
+ <plugin name='skid_steer_drive' filename='libgazebo_ros_diff_drive.so'>
         <ros>
           <!-- Set namespace -->
-          <namespace>/turtle1</namespace> 
+          <namespace>/axioma</namespace> 
           <!-- Remap default topics -->
           <argument>cmd_vel:=cmd_vel</argument>
-          <argument>odom:=odom_demo</argument>
+          <argument>odom:=odom</argument>
         </ros> 
         <!-- Update rate -->
-        <update_rate>500</update_rate> 
+        <update_rate>50</update_rate> 
         <!-- Number of wheel pairs -->
         <num_wheel_pairs>2</num_wheel_pairs> 
         <!-- wheels0 -->
@@ -559,9 +540,10 @@
         <publish_odom>true</publish_odom>
         <publish_odom_tf>true</publish_odom_tf>
         <publish_wheel_tf>true</publish_wheel_tf> 
-        <odometry_frame>odom_demo</odometry_frame>
+        <odometry_frame>odom</odometry_frame>
         <robot_base_frame>chassis</robot_base_frame> 
       </plugin>
+
 
   </model>
 </sdf>

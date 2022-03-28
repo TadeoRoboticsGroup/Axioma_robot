@@ -30,7 +30,8 @@ def generate_launch_description():
 
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
     pkg_axioma_pkg = get_package_share_directory('axioma_gazebo')
-    axioma_urdf_pkg=get_package_share_directory('axioma_urdf') 
+    axioma_urdf_pkg=get_package_share_directory('axioma_urdf')
+   
 
     use_rviz = LaunchConfiguration('use_rviz')
     urdf_file= LaunchConfiguration('urdf_file')
