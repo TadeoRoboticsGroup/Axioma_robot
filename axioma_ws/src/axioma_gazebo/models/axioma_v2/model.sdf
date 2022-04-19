@@ -344,7 +344,7 @@
     </link>
 
    <link name="base_scan">
-    <pose> 0 0 0.15 0 0 1.5708</pose>
+    <pose> 0 0 0.15 0 0 0</pose>
         <inertial> 
           <inertia>
             <ixx>0.001</ixx>
