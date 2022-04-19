@@ -78,24 +78,12 @@ El hardware se encuentra compuesto por dos herramientas open hardware muy usadas
 
 Nodos importantes usados en el proyecto axioma
 
-|  Nodo                        |temas  |mensajes |parametros |servicios |acciones |descripcion |
-|------------------------------|-------|---------|-----------|----------|---------|------------|
-| ***[Robot State Publisher](https://github.com/ros/robot_state_publisher/tree/foxy)***   |***joint_states (sensor_msgs/JointState)***| |***robot_description (urdf_map)*** ***tf_prefix(string)***  ***publish_frequency (double)***   ***ignore_timestamp(bool)***  ***use_tf_static (bool)*** |||  Nodo para publicar el estado de un robot en [**tf2**](https://wiki.ros.org/tf2). El estado publicado se pone disponible para todo le sistema que usan tf2. El paquete se puede utilizar como biblioteca y como nodo ROS.|
-| ***[Joint State Publisher](https://github.com/ros/joint_state_publisher/tree/foxy)***  |            |           |            |             |   | Este paquete publica mensajes sensor_msgs/JointState para un robot. El paquete lee el parámetro robot_description del servidor de parámetros , encuentra todas las uniones no fijas y publica un mensaje JointState con todas esas uniones definidas.`
-|smy_robot | | | | | | |
-|my_robot_base | | | | | | |
-|my_robot_bringup  | | | | | | |
-|my_robot_description| | | | | | |
-|my_robot_gazebo | | | | | | |
-|my_robot_kinematics | | | | | | |
-|my_robot_localization | | | | | | |
-|my_robot_manipulation | | | | | | |
-|my_robot_moveit_config | | | | | | |
-|my_robot_msgs | | | | | | |
-|my_robot_navigation | | | | | | |
-|my_robot_teleop | | | | | | |
-|my_robot_tests | | | | | | |
-|my_robot_rviz_plugins | | | | | | |
+|  Nodo                |descripcion |
+|----------------------|------------|
+| ***Axioma_urdf***    |sasdddddddddddddddddddddddddddddddddddddddddddddddddddddddd |
+| ***Axioma_gazebo***  |sas |
+| ***Axioma_node***    |sas |
+| ***Axioma_nav2***    |sas |
 
 ---
 
