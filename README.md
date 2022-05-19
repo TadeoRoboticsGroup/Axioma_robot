@@ -213,9 +213,3 @@ cada cierto tiempo ejecutar una acción de control
     
 ###  5 Simulación
 #### [Gazebo](http://gazebosim.org/)
-
-
-
-
-
-

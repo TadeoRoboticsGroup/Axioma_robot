@@ -174,6 +174,15 @@
         <hackBaseline>0</hackBaseline>
       </plugin>
     </sensor>
+
+    <sensor name="my_camera_sensor" update_rate="20">
+      <parent link="optical_frame_link_name"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <camera>
+        <image width="640" height="480" hfov="1.5708" format="RGB8" near="0.01" far="50.0"/>
+      </camera>
+    </sensor>
+
   </gazebo>
 
 </robot>

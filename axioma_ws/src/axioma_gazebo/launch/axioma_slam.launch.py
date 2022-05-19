@@ -36,6 +36,9 @@ def generate_launch_description():
     use_rviz = LaunchConfiguration('use_rviz')
     urdf_file= LaunchConfiguration('urdf_file')
 
+    world_file_name = 'map11.world.xml'
+    world = os.path.join(get_package_share_directory('axioma_gazebo'), 'worlds', world_file_name)
+
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py'),
@@ -67,9 +70,10 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+
         DeclareLaunchArgument(
           'world',
-          default_value=[os.path.join(pkg_axioma_pkg, 'worlds','axioma_v2.world'), ''],
+          default_value=[os.path.join(pkg_axioma_pkg, 'worlds',world), ''],
           description='SDF world file'),
 
         DeclareLaunchArgument('verbose', default_value='true',
