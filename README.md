@@ -65,6 +65,7 @@ El hardware se encuentra compuesto por dos herramientas open hardware muy usadas
    
 |    Libreria   | Lenguaje    |   Libreria       | Lenguaje     |
 | ------------- | ----------- | ---------------- | ------------ |
+| ***rclcpp***  | *C++*       | ***rclpy***      | *Python*    |
 | ***roscs***   | *Mono/.NET* | ***rosnode***    | *Node.js*    |
 | ***rosseus*** | *Lisp*      | ***RobotOS.jl*** | *Julia*      |
 | ***rosgo***   | *Go*        | ***PhaRos***     | *Pharo*      |
