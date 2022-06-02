@@ -81,44 +81,20 @@ Nodos importantes usados en el proyecto axioma
 
 |  Nodo                |descripcion |
 |----------------------|------------|
-| ***Axioma_urdf***    |sasdddddddddddddddddddddddddddddddddddddddddddddddddddddddd |
-| ***Axioma_gazebo***  |sas |
-| ***Axioma_node***    |sas |
-| ***Axioma_nav2***    |sas |
+| ***Axioma_urdf***    |Robot virtual|
+| ***Axioma_gazebo***  |Robot en simulación|
+| ***Axioma_node***    |Robot state |
+| ***Axioma_nav2***    |Planeación de trayectorias |
+ ***Axioma_explorer*** |Tecnica SLAM|
 
 ---
 
-* #### Temas
 
----
-
-* #### Acciones
-
----
-
-* #### Servicios
-
----
-
-* #### Parametros
-
----
-
-* #### Lanzaderas
-
----
-
-* #### Urdf
-
----
-
-* #### TF/TF2
 
 ![frames](https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/frames4.png)
 
 ---
 
-## 3 Modelado 3D
 
 ## 4 Modelo matemático 
 
@@ -212,5 +188,3 @@ cada cierto tiempo ejecutar una acción de control
 
     if(Δmuestreo>10ms)  ===>  Ejecuta acción de Control
     
-###  5 Simulación
-#### [Gazebo](http://gazebosim.org/)
